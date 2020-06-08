@@ -21,7 +21,11 @@ export default function StocksScreen({ route }) {
   useEffect(() => {
     // FixMe: fetch stock data from the server for any new symbols added to the watchlist and save in local StocksScreen state
   }, [watchList]);
-
+  this.state = {
+    dataSource:[
+      "a", "b"
+    ]
+  }
   return (
     <View style={styles.container}>
       <View
@@ -31,9 +35,13 @@ export default function StocksScreen({ route }) {
           alignItems: "center",
         }}
       >
+        <ListView
+          dataSource={this.state.dataSource}
+          renderRow={(rowData) => <Text>{rowData}</Text>}
+        />
+        {/* <Text>symbol</Text>
         <Text>symbol</Text>
-        <Text>symbol</Text>
-        <Text>symbol</Text>
+        <Text>symbol</Text> */}
       </View>
     </View>
   );
